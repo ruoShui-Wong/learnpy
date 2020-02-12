@@ -6,7 +6,7 @@
 # @Version : $Id$
 
 # 切片学习
-def trim(s):
+def trim0(s):
     # 空字符串
     if s=='':
         return ''
@@ -34,3 +34,14 @@ def trim(s):
     return s[i1:i2] + s[i2]
 
 
+# 别人家的代码
+# 你都没看题---->去除字符串首尾的空格
+def trim(s):
+    while s!='' and s[0]==' ':
+        s = s[1:]
+
+    while s!='' and s[-1]==' ':
+        s = s[:-1]
+
+    return s
+    
