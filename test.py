@@ -8,4 +8,6 @@
 
 from GJTX import fib
 
-fib(6)
+f = fib(6)
+for n in f:
+    print(n)

@@ -63,10 +63,19 @@ def findMinAndMax(L):
 
 
 # 斐波拉契数列
-def fib(max):
+def fib0(max):
     n, a, b = 0, 0, 1
     while n < max:
         print(b)
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        
         a, b = b, a + b
         n = n + 1
     return 'done'
