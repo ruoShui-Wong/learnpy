@@ -46,7 +46,6 @@ def trim(s):
     return s
     
 
-
 # 循环
 def findMinAndMax(L):
     if L==[]:
@@ -61,3 +60,13 @@ def findMinAndMax(L):
         if x2<d:
             x2=d
     return x1, x2
+
+
+# 斐波拉契数列
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        print(b)
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
