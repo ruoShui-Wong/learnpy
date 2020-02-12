@@ -66,5 +66,6 @@ def is_palindrome(n):
 
 
 # sorted
+# 想办法把用于排序的那个变量取出来就可以了
 def by_score(t):
     return t[1]
