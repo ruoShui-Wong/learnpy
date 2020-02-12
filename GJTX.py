@@ -33,7 +33,6 @@ def trim0(s):
     
     return s[i1:i2] + s[i2]
 
-
 # 别人家的代码
 # 你都没看题---->去除字符串首尾的空格
 def trim(s):
@@ -62,6 +61,7 @@ def findMinAndMax(L):
     return x1, x2
 
 
+# 生成器
 # 斐波拉契数列
 def fib0(max):
     n, a, b = 0, 0, 1
@@ -79,3 +79,20 @@ def fib(max):
         a, b = b, a + b
         n = n + 1
     return 'done'
+
+
+# 杨辉三角
+def triangles(n=13):
+    yield [1]
+
+    a = [1, 1]
+    yield a
+
+    for r in range(2, n):
+        b = [1, 1]
+        for i in range(1, len(a)):
+            b.insert(i, a[i-1] + a[i])
+        
+        a = b
+        yield a
+
