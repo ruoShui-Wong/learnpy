@@ -5,24 +5,21 @@
 # @Link    : http://example.org
 # @Version : $Id$
 
-from def_func import product
 
-# 测试
-print('product(5) =', product(5))
-print('product(5, 6) =', product(5, 6))
-print('product(5, 6, 7) =', product(5, 6, 7))
-print('product(5, 6, 7, 9) =', product(5, 6, 7, 9))
-if product(5) != 5:
+from GJTX import trim
+
+# 测试:
+if trim('hello  ') != 'hello':
     print('测试失败!')
-elif product(5, 6) != 30:
+elif trim('  hello') != 'hello':
     print('测试失败!')
-elif product(5, 6, 7) != 210:
+elif trim('  hello  ') != 'hello':
     print('测试失败!')
-elif product(5, 6, 7, 9) != 1890:
+elif trim('  hello  world  ') != 'hello  world':
+    print('测试失败!')
+elif trim('') != '':
+    print('测试失败!')
+elif trim('    ') != '':
     print('测试失败!')
 else:
-    try:
-        product()
-        print('测试失败!')
-    except TypeError:
-        print('测试成功!')
+    print('测试成功!')
