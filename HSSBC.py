@@ -69,3 +69,15 @@ def is_palindrome(n):
 # 想办法把用于排序的那个变量取出来就可以了
 def by_score(t):
     return t[1]
+
+
+
+# 返回函数
+def createCounter():
+    n = [0]         # 列表对象才是可以变的
+    def counter():
+        n[0] += 1
+        return n[0]
+
+    return counter
+
