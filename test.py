@@ -9,7 +9,7 @@ import time
 from HSSBC import log
 
 # 测试
-@log('', 'a')
+@log('OK')
 def fast(x, y):
     time.sleep(0.0012)
     return x + y;
