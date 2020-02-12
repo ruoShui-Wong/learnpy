@@ -63,3 +63,8 @@ def is_palindrome(n):
     s = str(n)
 
     return s[:] == s[::-1]
+
+
+# sorted
+def by_score(t):
+    return t[1]
