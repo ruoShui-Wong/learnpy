@@ -61,7 +61,6 @@ def findMinAndMax(L):
     return x1, x2
 
 
-# 生成器
 # 斐波拉契数列
 def fib0(max):
     n, a, b = 0, 0, 1
@@ -71,6 +70,7 @@ def fib0(max):
         n = n + 1
     return 'done'
 
+# 生成器实现
 def fib(max):
     n, a, b = 0, 0, 1
     while n < max:
@@ -82,8 +82,9 @@ def fib(max):
 
 
 # 杨辉三角
-def triangles(n=13):
-    yield [1]
+def triangles0(n=13):
+    a = [1]
+    yield a
 
     a = [1, 1]
     yield a
@@ -95,4 +96,13 @@ def triangles(n=13):
         
         a = b
         yield a
+
+# 别人家的代码
+def triangles(n=13):
+    a = [1]
+    for k in range(n):
+        yield a
+
+        a = [0] + a + [0]
+        a = [a[:-1][i] + a[1:][i] for i in range(len(a)-1)]
 
