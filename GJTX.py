@@ -45,3 +45,19 @@ def trim(s):
 
     return s
     
+
+
+# 循环
+def findMinAndMax(L):
+    if L==[]:
+        return (None, None)
+
+    x1 = L[0]
+    x2 = L[0]
+    for d in L:
+        if x1>d:
+            x1=d
+
+        if x2<d:
+            x2=d
+    return x1, x2
