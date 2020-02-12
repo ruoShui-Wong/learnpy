@@ -34,3 +34,32 @@ def str2float(s):
     f0 = reduce(lambda x, y: x * 10 + y, map(char2num, s1));
     f1 = reduce(lambda x, y: x / 10 + y, map(char2num, s2));
     return f0 + f1/10
+
+
+# filter
+# 素数生成
+# 1. 奇数序列生成器
+def _odd_iter():
+    n = 1
+    while True:
+        n = n + 2
+        yield n
+
+# 2. 筛选函数
+def _not_divisible(n):
+    return lambda x: x % n > 0
+
+# 3. 素数
+def primes():
+    yield 2
+    it = _odd_iter() # 初始序列
+    while True:
+        n = next(it) # 返回序列的第一个数
+        yield n
+        it = filter(_not_divisible(n), it) # 构造新序列
+
+# 回数
+def is_palindrome(n):
+    s = str(n)
+
+    return s[:] == s[::-1]
