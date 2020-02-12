@@ -98,9 +98,12 @@ def triangles0(n=13):
         yield a
 
 # 别人家的代码
-def triangles(n=13):
+def triangles():
     a = [1]
-    for k in range(n):
+
+    # 生成器是一种迭代器，可以无限次循环
+    # 所以呢？这里可以直接使用 `while True`
+    while True:
         yield a
 
         a = [0] + a + [0]
