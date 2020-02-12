@@ -5,34 +5,15 @@
 # @Link    : http://example.org
 # @Version : $Id$
 
-from functools import wraps
+import time
+from HSSBC import log
 
-def log0(func):
-    @wraps(func)
-    def wrapper(*args, **kw):
-        print('call %s():' % func.__name__)
-        return func(*args, **kw)
-    return wrapper
+# 测试
+@log('', 'a')
+def fast(x, y):
+    time.sleep(0.0012)
+    return x + y;
 
-@log0
-def now():
-    print('2015-3-25')
+f = fast(11, 22)
+print('f =', f)
 
-now()
-print(now.__name__)
-
-def log(text):
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kw):
-            print('%s %s():' % (text, func.__name__))
-            return func(*args, **kw)
-        return wrapper
-    return decorator
-
-@log('execute')
-def now():
-    print('2015-3-25')
-
-now()
-print(now.__name__)

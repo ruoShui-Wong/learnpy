@@ -5,9 +5,9 @@
 # @Link    : http://example.org
 # @Version : $Id$
 
+# 高阶函数：map/reduce
 from functools import reduce
 
-# 高阶函数：map/reduce
 # eg1
 def normalize(name):
     return name[0].upper() + name[1:].lower()
@@ -80,4 +80,28 @@ def createCounter():
         return n[0]
 
     return counter
+
+
+
+# 装饰器
+from functools import wraps
+from time import time
+
+def log(*text):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kw):
+            print('your input is:', text)
+            print('begin call function \'%s\'' % func.__name__)
+            t0 = time()
+            ans = func(*args, **kw)
+            t1 = time()
+            print('end call')
+            print('%.4fs elapsed' % (t1-t0))
+
+            return ans
+
+        return wrapper
+
+    return decorator
 
