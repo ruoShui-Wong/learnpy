@@ -5,21 +5,8 @@
 # @Link    : http://example.org
 # @Version : $Id$
 
-'廖雪峰的官方网站`Python`教程学习测试文档'
+from MK import greeting
 
-__author__ = 'Ruo'
-
-import sys
-
-def hello():
-    args = sys.argv
-    if len(args)==1:
-        print('Hello, world!')
-    elif len(args)==2:
-        print('Hello, %s!' % args[1])
-    else:
-        print('Too many arguments!')
-
-if __name__=='__main__':
-    hello()
+s = greeting('qianSong')
+print(s)
 
