@@ -20,28 +20,46 @@ class Student(object):
         print('my name is: %s %s' % (self.name, X))
 
     def __getattr__(self, name):
-        return lambda: 7
+        if name=='score':
+            return 99
+        elif name == 'age':
+            return lambda : 23
+        else:
+            raise AttributeError('No this attribute.')
 
 s = Student()
-s('Shui')
 print(s.name)
-
+print(s.score)      # 属性里没有该项
+print(s.age())      # 方法里也没有该项
 
 
 class Chain(object):
+    N = 0
 
     def __init__(self, path=''):
-        self._path = path
+        self.path = path
 
     def __getattr__(self, path):
-        return Chain('%s/%s' % (self._path, path))
+        Chain.N += 1
+        print(Chain.N)
+
+        return Chain('%s/%s' % (self.path, path))
 
     def __str__(self):
-        return self._path
+        return self.path
 
     __repr__ = __str__
 
-c = Chain().status.user.timeline.list
-print(c)
+s = Chain().www.baidu.com   # 多次重复创建实例
+print(type(s))              # s仍是一个Chain实例
+print(s)                    # 由于__str__函数，打印出来的东西有变
+
+s0 = Chain()
+s1 = s0.www
+print(s1.path)
+s2 = s1.baidu
+print(s2.path)
+s3 = s2.com
+print(s3.path)
 
 
