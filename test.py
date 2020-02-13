@@ -5,8 +5,15 @@
 # @Link    : http://example.org
 # @Version : $Id$
 
-from MK import greeting
+class Student(object):
 
-s = greeting('qianSong')
-print(s)
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
+
+bart = Student('Bart Simpson', 59)
+bart.print_score()
 
