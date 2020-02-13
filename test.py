@@ -5,23 +5,43 @@
 # @Link    : http://example.org
 # @Version : $Id$
 
-from enum import Enum, unique
 
-@unique
-class Weekday(Enum):
-    Sun = 0 # Sun的value被设定为0
-    Mon = 1
-    Tue = 2
-    Wed = 3
-    Thu = 4
-    Fri = 5
-    Sat = 6
+class Student(object):
+    """docstring for Student"""
+    def __init__(self, name='Rui'):
+        self.name = name
 
-day1 = Weekday['Mon']
-print(day1)
+    def __str__(self):
+        return 'Student object (name: %s)' % self.name
 
-day2 = Weekday(1)
-print(day2)
+    __repr__ = __str__
 
-day3 = Weekday.Mon
-print(day3)
+    def __call__(self, X):
+        print('my name is: %s %s' % (self.name, X))
+
+    def __getattr__(self, name):
+        return lambda: 7
+
+s = Student()
+s('Shui')
+print(s.name)
+
+
+
+class Chain(object):
+
+    def __init__(self, path=''):
+        self._path = path
+
+    def __getattr__(self, path):
+        return Chain('%s/%s' % (self._path, path))
+
+    def __str__(self):
+        return self._path
+
+    __repr__ = __str__
+
+c = Chain().status.user.timeline.list
+print(c)
+
+
