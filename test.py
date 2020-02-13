@@ -6,12 +6,17 @@
 # @Version : $Id$
 
 class Screen(object):
+    # 限制实例属性测试
+    __slots__ = ('_width', '_height', '_resolution')
+
     @property
     def width(self):
         return self._width
 
     @width.setter
     def width(self, width):
+        if width<100:
+            raise ValueError('width is too low')
         self._width = width
     
     @property
