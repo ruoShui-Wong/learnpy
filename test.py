@@ -5,39 +5,23 @@
 # @Link    : http://example.org
 # @Version : $Id$
 
-class Screen(object):
-    # 限制实例属性测试
-    __slots__ = ('_width', '_height', '_resolution')
+from enum import Enum, unique
 
-    @property
-    def width(self):
-        return self._width
+@unique
+class Weekday(Enum):
+    Sun = 0 # Sun的value被设定为0
+    Mon = 1
+    Tue = 2
+    Wed = 3
+    Thu = 4
+    Fri = 5
+    Sat = 6
 
-    @width.setter
-    def width(self, width):
-        if width<100:
-            raise ValueError('width is too low')
-        self._width = width
-    
-    @property
-    def height(self):
-        return self._height
+day1 = Weekday['Mon']
+print(day1)
 
-    @height.setter
-    def height(self, height):
-        self._height = height
+day2 = Weekday(1)
+print(day2)
 
-
-    @property
-    def resolution(self):
-        return self._height * self._width
-
-# 测试:
-s = Screen()
-s.width = 1024
-s.height = 768
-print('resolution =', s.resolution)
-if s.resolution == 786432:
-    print('测试通过!')
-else:
-    print('测试失败!')
+day3 = Weekday.Mon
+print(day3)
