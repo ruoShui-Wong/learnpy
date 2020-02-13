@@ -5,15 +5,21 @@
 # @Link    : http://example.org
 # @Version : $Id$
 
-import time
-from HSSBC import log
+'廖雪峰的官方网站`Python`教程学习测试文档'
 
-# 测试
-@log('OK')
-def fast(x, y):
-    time.sleep(0.0012)
-    return x + y;
+__author__ = 'Ruo'
 
-f = fast(11, 22)
-print('f =', f)
+import sys
+
+def hello():
+    args = sys.argv
+    if len(args)==1:
+        print('Hello, world!')
+    elif len(args)==2:
+        print('Hello, %s!' % args[1])
+    else:
+        print('Too many arguments!')
+
+if __name__=='__main__':
+    hello()
 
