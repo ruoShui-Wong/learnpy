@@ -5,15 +5,9 @@
 # @Link    : http://example.org
 # @Version : $Id$
 
-class Student(object):
-
-    def __init__(self, name, score):
-        self.name = name
-        self.score = score
-
-    def print_score(self):
-        print('%s: %s' % (self.name, self.score))
-
-bart = Student('Bart Simpson', 59)
-bart.print_score()
+class MyObject(object):
+    def __init__(self):
+        self.x = 9
+    def power(self):
+        return self.x * self.x
 
